@@ -10,14 +10,15 @@
     <?php
       }
       else {
-        echo "U bent ingelogd";
-    ?>
-
-    <?php
-      }
+		echo '<h2 align="center">Data in Graphs</h2>';
+		echo '<br> <br> <br>';
+        echo '<img src="graph-placeholder.jpg" style="width:49%; padding:30px;">';
+		echo '<img src="graph-placeholder.jpg" align="right" style="width:49%; padding:30px;">';
+	  }
     ?>
 	</div>
 </div>
 <!-- Einde homepagina inhoud -->
 
 <!-- Include file voor footer -->
+
