@@ -1,0 +1,14 @@
+/* Ronde hoeken en marge onder navbar verwijderen */
+.navbar {
+	border-radius: 0;
+	margin-bottom: 10;
+}
+
+/* Marge onderkant jumbotron verwijderen */
+.jumbotron {
+	margin-bottom: 0;
+}
+/*achtergrond */
+body {
+    background-color: White;
+}
