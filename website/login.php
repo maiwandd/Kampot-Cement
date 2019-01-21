@@ -1,35 +1,24 @@
 <!-- Include file voor bootstrap, stylesheet etc. -->
 <?php include('header_menu.php'); ?>
 
+
 <!-- Login pagina inhoud -->
 <div class="row">
 	<div class="col-sm-12">
-		<h2>Inloggen</h2>
+		<h2 align="center">Log in</h2>
 		<?php
 			if (!isset($_SESSION['loggedin'])) {
 		?>
+			<form align='center' action = 'login.php' method='post'>
+			<h3 align='center'>Kampot Cement</h3>
+			<br><br><br>
+			<fieldset align='center'>
+			E-mail:<br>
+			<input type='text' name='Email' placeholder = 'E-mail'><br>
+			Password:<br>
+			<input type='password' name='Password' placeholder='Password'><br><br>
+			<input type='submit' class="button" value='Login'>
 
-		<table class="table">
-			<tr>
-				<form method="post" action="login.php">
-					<td>Emailadres: </td>
-					<td>
-						<input type="text" name="Email" placeholder="Emailadres">
-					</td>
-			</tr>
-			<tr>
-				<td>Password: </td>
-				<td>
-					<input type="password" name="Password" placeholder="Password">
-				</td>
-			</tr>
-			<tr>
-				<td colspan='2'>
-					<input type='submit' class="button" value="Login">
-				</td>
-			</tr>
-				</form>
-		</table>
 		<?php
 			}
 			else {
