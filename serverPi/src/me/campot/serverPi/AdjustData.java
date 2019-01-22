@@ -13,12 +13,6 @@ class AdjustData {
 
     private static final int MAX_COUNTER = 30;
 
-    /** Blablabla
-     *
-     * @param data
-     * @param missingValue
-     * @param list
-     */
     private static void Adjust(HashMap<String, String> data,
                                ArrayList<String> missingValue, ArrayList<HashMap<String, String>> list) {
 
