@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a41ea887-037a-45ce-9a84-a3df4a19c013" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/campot/serverPi/TestObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../serverVM/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../serverVM/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../serverVM/src/me/campot/serverVM/StationStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/serverPi/me/campot/AdjustData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/serverPi/me/campot/CustomThreadPoolExecutor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/serverPi/me/campot/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/serverPi/me/campot/WorkerRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/serverPi/me/campot/XMLParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverPi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/serverPi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/campot/AdjustData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/campot/CustomThreadPoolExecutor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/campot/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/campot/WorkerRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/campot/XMLParser.java" beforeDir="false" />
-    </list>
+    <list default="true" id="a41ea887-037a-45ce-9a84-a3df4a19c013" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/XMLParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="79">
+              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#628#629#0" expanded="true" />
@@ -211,29 +193,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548067596032</updated>
-      <workItem from="1548067602771" duration="15324000" />
+      <workItem from="1548067602771" duration="15587000" />
     </task>
+    <task id="LOCAL-00001" summary="First attempt to write JSON; needs testing! TO-DO; all data in one file instead of a file per thread.">
+      <created>1548169050374</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1548169050374</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15324000" />
+    <option name="totallyTimeSpent" value="15587000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="10" width="1660" height="1030" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.24969098" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.24969098" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="0" visible="true" weight="0.32942432" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.32942432" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" visible="true" weight="0.32942432" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32942432" />
       <window_info anchor="bottom" id="Run" order="8" weight="0.32942432" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
@@ -250,6 +241,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First attempt to write JSON; needs testing! TO-DO; all data in one file instead of a file per thread." />
+    <option name="LAST_COMMIT_MESSAGE" value="First attempt to write JSON; needs testing! TO-DO; all data in one file instead of a file per thread." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/me/campot/XMLParser.java">
@@ -360,8 +355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/XMLParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="79">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#628#629#0" expanded="true" />
