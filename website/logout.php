@@ -4,8 +4,8 @@ if(isset($_SESSION['Email'])){
    unset($_SESSION['Email']);
 }
 
-if(isset($_SESSION['Wachtwoord'])){
-   unset($_SESSION['Wachtwoord']);
+if(isset($_SESSION['Password'])){
+   unset($_SESSION['Password']);
 }
 
 if(isset($_SESSION['Rights'])){

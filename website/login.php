@@ -50,9 +50,9 @@
 			header('location: index.php');
 			}
 		}
-
 		else{
-			$_SESSION['errorlog']="Login gegevens niet geldig.";
+			$_SESSION['errorlog']="Incorrect login.";
+			echo '<script>alert("Incorrect login")</script>';
 			header('location: login.php');
 		}
 	}

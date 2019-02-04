@@ -52,9 +52,9 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="newuser.php"><span class="glyphicon glyphicon-log-in"></span> Create User</a></li>
-							<li><a href="edituser.php"><span class="glyphicon glyphicon-log-in"></span> Edit User</a></li>
+							<li><a href="useroverview.php"><span class="glyphicon glyphicon-log-in"></span>User Overview</a></li>
 							<li><a href="profilepage.php"><span class="glyphicon glyphicon-log-in"></span> Settings</a></li>
-							<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Uitloggen</a></li>
+							<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 						</ul>
 					</div>
 

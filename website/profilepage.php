@@ -70,7 +70,7 @@
 							<div class="col-sm-offset-2 col-sm-10">
 								<div class="pull-left">
 								<!-- Buttons met links -->
-									<a href="pwedit.php" class="btn btn-primary">Change Password</a>
+									<a href="resetpassword.php?user_id=<?php echo $UserID?>" class="btn btn-primary">Change Password</a>
 								</div>
 							</div>
 						</div>
