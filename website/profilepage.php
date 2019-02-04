@@ -6,10 +6,10 @@
 				<form class="form-horizontal" role="form">
 					<fieldset>
 						<?php
-						$query = "SELECT * FROM Users WHERE Email = '".$_SESSION['Email']."'"; //haalt huidige klantData op van huidige klant
+						$query = "SELECT * FROM Users WHERE Email = '".$_SESSION['Email']."'"; //imports the current userdata of the user
 						$result=mysqli_query($db, $query) or die(mysqli_error($db));
 
-						while($Data = mysqli_fetch_assoc($result)) { //koppelt alle klant Data aan een variabele
+						while($Data = mysqli_fetch_assoc($result)) { //binds the userdata to an variable
 							$Firstname = $Data['Firstname'];
 							$Lastname = $Data['Lastname'];
 							$Middlename = $Data['Middlename'];
@@ -20,9 +20,9 @@
 								}
 						?>
 						<!--
-						Weergave voor alle klantData
-						Alle klantinformatie wordt weergevens dmv de bijhorende variable
-						-->
+						display for all userdata
+						all the userdata will be displayed using the corresponding variable
+											-->
 						<legend>Personal Data</legend>
 
 						<div class="form-group">
@@ -69,8 +69,8 @@
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<div class="pull-left">
-								<!-- Buttons met links -->
-									<a href="pwedit.php" class="btn btn-primary">Change Password</a>
+								<!-- Buttons with links -->
+									<a href="resetpassword.php?user_id=<?php echo $UserID?>" class="btn btn-primary">Change Password</a>
 								</div>
 							</div>
 						</div>

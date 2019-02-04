@@ -1,99 +1,138 @@
 <?php
-function InitDB($host,$uname,$pwd,$database,$tablename)
-{
-    $this->db_host  = $host;
-    $this->username = $uname;
-    $this->pwd  = $pwd;
-    $this->database  = $database;
-    $this->tablename = $tablename;
-
-}
-function Login()
-{
-    if(empty($_POST['Email']))
-    {
-        $this->HandleError("Emailadres is leeg!");
-        return false;
-    }
-
-    if(empty($_POST['Wachtwoord']))
-    {
-        $this->HandleError("Wachtwoord is leeg!");
-        return false;
-    }
-
-    $username = ($_POST['Email']);
-    $Wachtwoord = ($_POST['Wachtwoord']);
-
-    if(!isset($_SESSION)){ session_start(); }
-    if(!$this->CheckLoginInDB($username,$Wachtwoord))
-    {
-        return false;
-    }
-
-    return true;
-}
-
-function CheckLogin()
-{
-     if(!isset($_SESSION)){ session_start(); }
-
-     $sessionvar = $this->GetLoginSessionVar();
-
-     if(empty($_SESSION[$sessionvar]))
-     {
-        return false;
-     }
-     return true;
-}
-
-function CheckLoginInDB($username,$password)
-{
-
-    $username = ($_POST['Email']);
-    $Wachtwoord = ($_POST['Wachtwoord']);
-    $qry = "Select name, email from $this->tablename where username='$username' and password='$pwdmd5' and confirmcode='y'";
-
-    $result = mysql_query($qry,$this->connection);
-
-    if(!$result || mysql_num_rows($result) <= 0)
-    {
-        $this->HandleError("Error logging in. The username or password does not match");
-        return false;
-    }
-
-    $row = mysql_fetch_assoc($result);
-
-
-    $_SESSION['name_of_user']  = $row['name'];
-    $_SESSION['email_of_user'] = $row['email'];
-
-    return true;
-}
-function DBLogin()
-{
-
-    $this->connection = mysql_connect($this->db_host,$this->username,$this->pwd);
-
-    if(!$this->connection)
-    {
-        $this->HandleDBError("Database Login failed! Please make sure that the DB login credentials provided are correct");
-        return false;
-    }
-    if(!mysql_select_db($this->database, $this->connection))
-    {
-        $this->HandleDBError('Failed to select database: '.$this->database.' Please make sure that the database name provided is correct');
-        return false;
-    }
-    if(!mysql_query("SET NAMES 'UTF8'",$this->connection))
-    {
-        $this->HandleDBError('Error setting utf8 encoding');
-        return false;
-    }
-    return true;
-}
-
-
-
-
- ?>
+$stations = array(
+"483000"=>"MAE HONG SON - THAILAND",
+"483030"=>"CHIANG RAI - THAILAND",
+"483032"=>"DATSAV3 VIRT STATION - THAILAND",
+"483270"=>"CHIANG MAI - THAILAND",
+"483280"=>"LAMPANG - THAILAND",
+"483520"=>"NONG KHAI - THAILAND",
+"483530"=>"LOEI - THAILAND",
+"483540"=>"UDON THANI - THAILAND",
+"483545"=>"UDORN AB (USAF) - THAILAND",
+"483570"=>"NAKHON PHANOM - THAILAND",
+"483575"=>"DATSAV3 VIRT STATION - THAILAND",
+"483750"=>"MAE SOT - THAILAND",
+"483760"=>"TAK - THAILAND",
+"483770"=>"BHUMIBOL DAM - THAILAND",
+"483780"=>"PHITSANULOK - THAILAND",
+"483790"=>"PHETCHABUN - THAILAND",
+"483800"=>"KAM PAENG PHET - THAILAND",
+"483810"=>"KHON KAEN - THAILAND",
+"483820"=>"KOSUMPHISAI - THAILAND",
+"483830"=>"MUKDAHAN - THAILAND",
+"483900"=>"KAMALASAI - THAILAND",
+"484000"=>"NAKHON SAWAN - THAILAND",
+"484005"=>"TA KHLI  THAILAND AB - THAILAND",
+"484006"=>"TAKHLI (THAI-AFB) - THAILAND",
+"484030"=>"CHAIYAPHUM - THAILAND",
+"484050"=>"ROI ET - THAILAND",
+"484070"=>"UBON RATCHATHANI - THAILAND",
+"484075"=>"BURI RAM - THAILAND",
+"484076"=>"SUKHOTHAI - THAILAND",
+"484250"=>"SUPHAN BURI - THAILAND",
+"484260"=>"LOP BURI - THAILAND",
+"484300"=>"PRACHIN BURI - THAILAND",
+"484310"=>"NAKHON RATCHASIMA - THAILAND",
+"484316"=>"KORAT AB (USAF) - THAILAND",
+"484320"=>"SURIN - THAILAND",
+"484500"=>"KANCHANABURI - THAILAND",
+"484550"=>"BANGKOK METROPOLIS - THAILAND",
+"484560"=>"DON MUANG - THAILAND",
+"484590"=>"CHON BURI - THAILAND",
+"484600"=>"KO SICHANG - THAILAND",
+"484610"=>"PHATTHAYA - THAILAND",
+"484620"=>"ARANYAPRATHET - THAILAND",
+"484650"=>"PHETCHABURI - THAILAND",
+"484750"=>"HUA HIN - THAILAND",
+"484770"=>"SATTAHIP - THAILAND",
+"484775"=>"U-TAPHAO INTL(NAVY) - THAILAND",
+"484780"=>"RAYONG - THAILAND",
+"485000"=>"PRACHUAP KHIRIKHAN - THAILAND",
+"485010"=>"KHLONG YAI - THAILAND",
+"485170"=>"CHUMPHON - THAILAND",
+"485320"=>"RANONG - THAILAND",
+"485500"=>"KO SAMUI - THAILAND",
+"485510"=>"SURAT THANI - THAILAND",
+"485576"=>"KRABI - THAILAND",
+"485577"=>"SAMUI - THAILAND",
+"485640"=>"PHUKET - THAILAND",
+"485650"=>"PHUKET AIRPORT - THAILAND",
+"485660"=>"KO LANTA - THAILAND",
+"485670"=>"TRANG - THAILAND",
+"485680"=>"SONGKHLA - THAILAND",
+"485690"=>"HAT YAI - THAILAND",
+"485800"=>"PATTANI - THAILAND",
+"485830"=>"NARATHIWAT - THAILAND",
+"749313"=>"DAK TO VIETNAM AI - VIETNAM",
+"488060"=>"SON LA - VIETNAM",
+"488030"=>"LAO CAI - VIETNAM",
+"488080"=>"CAO BANG - VIETNAM",
+"488100"=>"BAC CAN - VIETNAM",
+"488200"=>"HA NOI - VIETNAM",
+"488230"=>"NAM DINH - VIETNAM",
+"488260"=>"PHU LIEN - VIETNAM",
+"488300"=>"LANG SON - VIETNAM",
+"488390"=>"BACH LONG VI - VIETNAM",
+"488400"=>"THANH HOA - VIETNAM",
+"488450"=>"VINH - VIETNAM",
+"488460"=>"HA TINH - VIETNAM",
+"488480"=>"DONG HOI - VIETNAM",
+"488490"=>"DONG HA - VIETNAM",
+"488510"=>"QUANG TRI - VIETNAM",
+"488515"=>"CAMP EVANS - VIETNAM",
+"488520"=>"HUE - VIETNAM",
+"488525"=>"L.Z. SALLY - VIETNAM",
+"488526"=>"CAMP EAGLE - VIETNAM",
+"488550"=>"DA NANG - VIETNAM",
+"488561"=>"MARBLE MOUNTAIN - VIETNAM",
+"488600"=>"HOANG SA (PATTLE) - VIETNAM",
+"488635"=>"DUC PHO - VIETNAM",
+"488640"=>"CHU LAI - VIETNAM",
+"488630"=>"QUANG NGAI - VIETNAM",
+"488660"=>"PLEIKU CITY - VIETNAM",
+"488665"=>"CAMP ENARI - VIETNAM",
+"488671"=>"AN KHE - VIETNAM",
+"488676"=>"PHU CAT - VIETNAM",
+"488685"=>"L.Z. ENGLISH - VIETNAM",
+"488695"=>"KONTUM - VIETNAM",
+"488700"=>"QUY NHON - VIETNAM",
+"488730"=>"TUY-HOA - VIETNAM",
+"488750"=>"BANMETHUOT - VIETNAM",
+"488770"=>"NHA TRANG - VIETNAM",
+"488810"=>"BECAME STN 488811 - VIETNAM",
+"488815"=>"DALAT/CAM LY - VIETNAM",
+"488840"=>"BAO-LOC (BLAO) - VIETNAM",
+"488870"=>"PHAN THIET - VIETNAM",
+"488885"=>"PHUOC LONG/SONG BE - VIETNAM",
+"488896"=>"PHAN RANG - VIETNAM",
+"488910"=>"DAU TIENG - VIETNAM",
+"488915"=>"TAY NINH WEST - VIETNAM",
+"488925"=>"PHU LOI - VIETNAM",
+"488926"=>"PHUOC-VINH - VIETNAM",
+"488935"=>"CU CHI - VIETNAM",
+"488960"=>"DATSAV3 VIRT STATION - VIETNAM",
+"488962"=>"SAIGON/BIEN/HOA - VIETNAM",
+"488970"=>"CAM RANH BAY - VIETNAM",
+"489000"=>"TAN SON HOA - VIETNAM",
+"489005"=>"DIAN - VIETNAM",
+"489006"=>"QUAN LOI - VIETNAM",
+"489015"=>"LONG THANH (NORTH) - VIETNAM",
+"489041"=>"VUNGTAU - VIETNAM",
+"489070"=>"RACH GIA - VIETNAM",
+"489100"=>"VINH LONG - VIETNAM",
+"489105"=>"TAN AN - VIETNAM",
+"489111"=>"PHONG DINH/CAN THO - VIETNAM",
+"489125"=>"BINH THUY/PHONG DIN - VIETNAM",
+"489130"=>"BA-XUYEN/SOC TRANG - VIETNAM",
+"489140"=>"CA MAU - VIETNAM - LAOS",
+"489170"=>"PHU QUOC - VIETNAM - LAOS",
+"489180"=>"CON SON - VIETNAM - LAOS",
+"489300"=>"LUANG-PRABANG - LAOS",
+"489350"=>"PLAINE DES JARRES - LAOS",
+"489400"=>"VIENTIANE - LAOS",
+"489470"=>"SAVANNAKHET - LAOS",
+"489480"=>"SENO - LAOS",
+"489550"=>"PAKSE - LAOS",
+"489660"=>"SIEMREAP - CAMBODIA",
+"489910"=>"PHNOM-PENH/POCHENTO - CAMBODIA");
+?>

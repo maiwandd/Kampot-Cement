@@ -2,7 +2,7 @@
 <?php include('header_menu.php'); ?>
 
 
-<!-- Login pagina inhoud -->
+<!-- Login page content -->
 <div class="row">
 	<div class="col-sm-12">
 		<h2 align="center">Log in</h2>
@@ -50,11 +50,11 @@
 			header('location: index.php');
 			}
 		}
-
 		else{
-			$_SESSION['errorlog']="Login gegevens niet geldig.";
+			$_SESSION['errorlog']="Incorrect login.";
+			echo '<script>alert("Incorrect login")</script>';
 			header('location: login.php');
 		}
 	}
 ?>
-<!-- Einde login pagina inhoud -->
+<!-- End login page content -->

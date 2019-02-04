@@ -1,0 +1,63 @@
+{
+  cols: [{ID: 'A', label: 'WNDDIR', type: 'number'},
+         {ID: 'B', label: 'SNDP', type: 'number'},
+         {ID: 'C', label: 'WDSP', type: 'number'},
+         {ID: 'D', label: 'DEWP', type: 'number'},
+         {ID: 'E', label: 'VISIB', type: 'number'},
+         {ID: 'F', label: 'TIME', type: 'time'},
+         {ID: 'G', label: 'PRCP', type: 'number'},
+         {ID: 'H', label: 'STN', type: 'number'},
+         {ID: 'I', label: 'STP', type: 'number'},
+         {ID: 'J', label: 'DATE', type: 'datetime'},
+         {ID: 'K', label: 'TEMP', type: 'number'},
+         {ID: 'L', label: 'SLP', type: 'number'},
+         {ID: 'M', label: 'CLDC', type: 'number'},
+         {ID: 'N', label: 'FRSHTT', type: 'number'}],
+  rows: [{c:[{v: 150},
+             {v: 13.4}
+             {v: 7.5}
+             {v: -15.5}
+             {v: 39.5}
+             {v: 13:59:47}
+             {v: 0.02}
+             {v: 237240}
+             {v: 1022.9}
+             {v: new Date(2019, 1, 22, 13, 59, 47)}
+             {v: -13.8}
+             {v: 1014.3}
+             {v: 51.9}
+             {v: 111000}
+           ]},
+         {c:[{v: 150},
+             {v: 13.4}
+             {v: 7.5}
+             {v: -15.5}
+             {v: 39.5}
+             {v: 13:59:47}
+             {v: 0.02}
+             {v: 237240}
+             {v: 1022.9}
+             {v: new Date(2019, 1, 22, 13, 59, 47)}
+             {v: -13.8}
+             {v: 1014.3}
+             {v: 51.9}
+             {v: 111000}
+          ]},
+         {c:[{v: 150},
+             {v: 13.4}
+             {v: 7.5}
+             {v: -15.5}
+             {v: 39.5}
+             {v: 13:59:47}
+             {v: 0.02}
+             {v: 237240}
+             {v: 1022.9}
+             {v: new Date(2019, 1, 22, 13, 59, 47)}
+             {v: -13.8}
+             {v: 1014.3}
+             {v: 51.9}
+             {v: 111000}
+           ]},
+         ],
+
+}

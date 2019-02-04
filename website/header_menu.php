@@ -27,12 +27,12 @@
 <body>
 
 
-		<!-- Navigatie/ menu -->
+		<!-- menu -->
 		<div class="row">
 			<nav class="navbar navbar-inverse">
 				<div class="navbar-header">
 
-					<!-- Smal scherm -->
+					<!-- Small scherm -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navigatiemenu">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -52,13 +52,13 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="newuser.php"><span class="glyphicon glyphicon-log-in"></span> Create User</a></li>
-							<li><a href="edituser.php"><span class="glyphicon glyphicon-log-in"></span> Edit User</a></li>
+							<li><a href="useroverview.php"><span class="glyphicon glyphicon-log-in"></span>User Overview</a></li>
 							<li><a href="profilepage.php"><span class="glyphicon glyphicon-log-in"></span> Settings</a></li>
-							<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Uitloggen</a></li>
+							<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 						</ul>
 					</div>
 
-				<!-- Klanten ingelogd menu -->
+				<!-- Menu if the users are logged in -->
 			<?php } elseif ($_SESSION['Rights'] =='1') { ?>
 					<div class="collapse navbar-collapse" id="Navigatiemenu">
 						<ul class="nav navbar-nav">
@@ -72,7 +72,7 @@
 						</ul>
 					</div>
 
-				<!-- Niet ingelogd menu -->
+				<!-- Menu if not logged in -->
 				<?php } else { ?>
 					<div class="collapse navbar-collapse" id="Navigatiemenu">
 						<ul class="nav navbar-nav">
