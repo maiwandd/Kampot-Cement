@@ -1,18 +1,22 @@
 package me.campot.serverPi;
 
-import org.json.simple.JSONObject;
-
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Objects;
 
 class AdjustData {
+
     private static final HashMap<String, ArrayList<HashMap<String, String>>> dataStorage = new HashMap<>();
 
     private static final int MAX_COUNTER = 30;
 
+    /**
+     *
+     * @param data
+     * @param missingValue
+     * @param list
+     */
     private static void Adjust(HashMap<String, String> data,
                                ArrayList<String> missingValue, ArrayList<HashMap<String, String>> list) {
 
@@ -50,6 +54,10 @@ class AdjustData {
         list.add(data);
     }
 
+    /**
+     * Method to correct incomming data
+     * @param data
+     */
     static synchronized void correct(HashMap<String, String> data) {
 
         String stationnr = "0";
@@ -59,7 +67,7 @@ class AdjustData {
             String key = entry.getKey();
             String value = entry.getValue();
 
-            if (Objects.equals(key, "stn")) {
+            if (Objects.equals(key, "STN")) {
                 stationnr = value;
             }
 
@@ -91,15 +99,5 @@ class AdjustData {
         }
 
         dataStorage.put(stationnr, list);
-    }
-
-    static synchronized void test123(String name, JSONObject jsonObject) {
-        try {
-            FileWriter fileWriter = new FileWriter(name + ".json");
-            fileWriter.write(jsonObject.toJSONString());
-            fileWriter.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

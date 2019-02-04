@@ -1,6 +1,5 @@
 package me.campot.serverPi;
 
-import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -12,63 +11,137 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
+import java.util.LinkedHashMap;
 
 class XMLParser implements Runnable {
 
+    private static int makeShift = 0;
     private final String XML;
 
     XMLParser(String xml) {
         this.XML = xml;
     }
 
+    //    @Override
+//    public void run() {
+//
+//        try {
+//            DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+//
+//            InputSource inputSource = new InputSource();
+//            inputSource.setCharacterStream(new StringReader(XML));
+//
+//            try {
+//                Document doc = documentBuilder.parse(inputSource);
+//                NodeList data = doc.getElementsByTagName("MEASUREMENT");
+//                StringBuilder str = new StringBuilder();
+//                int length = data.getLength();
+//
+//                for (int i = 0; i < length; i++) {
+//                    Element measurement = (Element) data.item(i);
+//
+//                    if (Station.testMap.containsKey(measurement.getElementsByTagName("STN").item(0).getTextContent())) {
+//
+//                        String[] tags = {"STN", "DATE", "TIME", "DEWP", "STP", "TEMP", "SLP",
+//                                "VISIB", "WDSP", "PRCP", "SNDP", "FRSHTT", "CLDC", "WNDDIR"};
+//
+//                        HashMap<String, String> measurementData = new LinkedHashMap<>();
+//                        for (String tag : tags) {
+//                            measurementData.put(tag,
+//                                    measurement.getElementsByTagName(tag).item(0).getTextContent());
+//                        }
+//
+//                        AdjustData.correct(measurementData);
+//
+//                        StringBuilder stringBuilder = new StringBuilder();
+//                        stringBuilder.append("\n");
+//
+//                        for (String tag : tags) {
+//                            if (!tag.equals("WNDDIR")) {
+//                                stringBuilder.append(measurementData.get(tag));
+//                                stringBuilder.append(",");
+//                            } else {
+//                                stringBuilder.append(measurementData.get(tag));
+//                            }
+//                        }
+//                        str.append(stringBuilder);
+//                    }
+//                }
+//                //System.out.println(str);
+//                // Queue.add(str);
+//                if (makeShift != 0) {
+//                    Queue.add(str);
+//                    makeShift = 5;
+//                } else {
+//                    makeShift =- 1;
+//                }
+//            } catch (SAXException | IOException e) {
+//                e.printStackTrace();
+//                System.out.println(e.getMessage());
+//            }
+//        } catch (ParserConfigurationException pce) {
+//            System.out.println(pce.getMessage());
+//            pce.printStackTrace();
+//        }
+//    }
     @Override
     public void run() {
-        try {
-            DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            InputSource inputSource = new InputSource();
-            inputSource.setCharacterStream(new StringReader(XML));
-
-            List<HashMap<String, String>> list = new ArrayList<>();
-            HashMap<String, List<HashMap<String, String>>> topLevel = new HashMap<>();
-
+        if (makeShift == 0) {
             try {
-                Document doc = documentBuilder.parse(inputSource);
-                NodeList data = doc.getElementsByTagName("MEASUREMENT");
+                DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
-                int length = data.getLength();
+                InputSource inputSource = new InputSource();
+                inputSource.setCharacterStream(new StringReader(XML));
 
-                for (int i = 0; i < length; i++) {
-                    Element measurement = (Element) data.item(i);
+                try {
+                    Document doc = documentBuilder.parse(inputSource);
+                    NodeList data = doc.getElementsByTagName("MEASUREMENT");
+                    StringBuilder str = new StringBuilder();
+                    int length = data.getLength();
 
-                    String[] tags = {"STN", "DATE", "TIME", "DEWP", "STP", "TEMP", "SLP",
-                            "VISIB", "WDSP", "PRCP", "SNDP", "FRSHTT", "CLDC", "WNDDIR"};
+                    for (int i = 0; i < length; i++) {
+                        Element measurement = (Element) data.item(i);
 
-                    HashMap<String, String> measurementData = new HashMap<>();
+                        if (Station.testMap.containsKey(measurement.getElementsByTagName("STN").item(0).getTextContent())) {
 
-                    for (String tag : tags) {
-                        measurementData.put(tag,
-                                measurement.getElementsByTagName(tag).item(0).getTextContent());
+                            String[] tags = {"STN", "DATE", "TIME", "DEWP", "STP", "TEMP", "SLP",
+                                    "VISIB", "WDSP", "PRCP", "SNDP", "FRSHTT", "CLDC", "WNDDIR"};
+
+                            HashMap<String, String> measurementData = new LinkedHashMap<>();
+                            for (String tag : tags) {
+                                measurementData.put(tag,
+                                        measurement.getElementsByTagName(tag).item(0).getTextContent());
+                            }
+
+                            AdjustData.correct(measurementData);
+
+                            StringBuilder stringBuilder = new StringBuilder();
+                            stringBuilder.append("\n");
+
+                            for (String tag : tags) {
+                                if (!tag.equals("WNDDIR")) {
+                                    stringBuilder.append(measurementData.get(tag));
+                                    stringBuilder.append(",");
+                                } else {
+                                    stringBuilder.append(measurementData.get(tag));
+                                }
+                            }
+                            str.append(stringBuilder);
+                        }
                     }
-
-                    AdjustData.correct(measurementData);
-
-                    list.add(measurementData);
-                    topLevel.put(measurement.getElementsByTagName("STN").item(0).getTextContent(), list);
-
-                    AdjustData.test123(Long.toString(Thread.currentThread().getId()), new JSONObject(topLevel));
-
+                    makeShift = 4;
+                    Queue.add(str);
+                } catch (SAXException | IOException e) {
+                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
-            } catch (SAXException | IOException e) {
-                e.printStackTrace();
-                System.out.println(e.getMessage());
+            } catch (ParserConfigurationException pce) {
+                System.out.println(pce.getMessage());
+                pce.printStackTrace();
             }
-        } catch (ParserConfigurationException pce) {
-            System.out.println(pce.getMessage());
-            pce.printStackTrace();
+        } else {
+            makeShift -= 1;
         }
     }
 }

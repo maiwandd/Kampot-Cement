@@ -13,6 +13,7 @@ class WorkerRunnable implements Runnable {
 
     @Override
     public void run() {
+
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
