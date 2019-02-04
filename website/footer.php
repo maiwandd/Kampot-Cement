@@ -2,17 +2,17 @@
 <footer class="form-group row">
 	<div class="col-sm-12">
 		<p class="text-center">
-			© Ria's Sleutelhangers <?php echo date("Y"); ?>
+			© Kampot Cement <?php echo date("Y"); ?>
 			<p class="text-center">
-				<a href="#">Algemene Voorwaarden</a>  |
+				<a href="#">Terms Of Condition</a>  |
 				<a href="#">Privacy</a>  |
 				<a href="contact.php">Contact</a>
 			</p>
 		</p>
 	</div>
 </footer>
-<!-- Einde footer inhoud -->
+<!-- End footer inhoud -->
 
-<!-- Container en body afsluiten -->
+<!-- Closing the container and footer -->
 </div>
 </body>

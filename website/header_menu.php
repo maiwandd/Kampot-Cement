@@ -27,12 +27,12 @@
 <body>
 
 
-		<!-- Navigatie/ menu -->
+		<!-- menu -->
 		<div class="row">
 			<nav class="navbar navbar-inverse">
 				<div class="navbar-header">
 
-					<!-- Smal scherm -->
+					<!-- Small scherm -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navigatiemenu">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -58,7 +58,7 @@
 						</ul>
 					</div>
 
-				<!-- Klanten ingelogd menu -->
+				<!-- Menu if the users are logged in -->
 			<?php } elseif ($_SESSION['Rights'] =='1') { ?>
 					<div class="collapse navbar-collapse" id="Navigatiemenu">
 						<ul class="nav navbar-nav">
@@ -72,7 +72,7 @@
 						</ul>
 					</div>
 
-				<!-- Niet ingelogd menu -->
+				<!-- Menu if not logged in -->
 				<?php } else { ?>
 					<div class="collapse navbar-collapse" id="Navigatiemenu">
 						<ul class="nav navbar-nav">

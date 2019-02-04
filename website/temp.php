@@ -45,14 +45,14 @@ $.get("data/data.csv", getDataPointsFromCSV);
 
 //CSV Format
 //time,temperature
-//csv file omzetten naar een array en waardes in een grafiek pushen
+//transfer the csv data to an array and push the data to a graph
 function getDataPointsFromCSV(csv) {
  var points;
  var csvLines = csv.split(/[\r?\n|\r|\n]+/);
  for (var i = 1; i < csvLines.length; i++) {
    if (csvLines[i].length > 0) {
      points = csvLines[i].split(",");
-     // alle stationsnummer van cambodia hier filteren.
+     // filter all the stations
      if(points[0] == value){
        dataPoints.push({
          label: points[2],
@@ -61,7 +61,7 @@ function getDataPointsFromCSV(csv) {
      }
    }
  }
- //grafiek tekenen
+ //draw the graph
  chart.render();
 }
 document.getElementById("downloadExcel").addEventListener("click", function(){

@@ -3,11 +3,11 @@
 <!-- Checkt of er als admin ingelogd is -->
 <?php
 if($_SESSION['rechten'] =='1') {
-		$_SESSION['errorlog']="U heeft geen rechten om deze pagina te bekijken";
+		$_SESSION['errorlog']="You have no rights to visit this webpage";
 	header('location: index.php');
 }
 elseif($_SESSION['rechten'] =='0') {
-    $_SESSION['errorlog']="U heeft geen rechten om deze pagina te bekijken";
+    $_SESSION['errorlog']="You have no rights to visit this webpage";
     header('location: index.php');
 } ?>
 <table id="summary">
@@ -36,6 +36,7 @@ elseif($_SESSION['rechten'] =='0') {
 		<tr>
 			<form method="post" action="deleteuser.php">
    <tr>
+		 <?php //shows the data of the user  ?>
     <td><strong>Email:</strong></td>
     <td><input type="text" name="Email" value="<?php echo ($data['Email'])?>" readonly></td>
   </tr>
@@ -62,7 +63,7 @@ elseif($_SESSION['rechten'] =='0') {
 				<tr>
 					<td colspan='2'>
 						<a href="useroverview.php"><input type="button" class="btn btn-default" value="Return"></a>
-						<input type='submit' class="btn btn-danger" value="Delete User" onclick="return confirm('Are you sure you want to delete this user? This cannot be undone.')">
+						<input type='submit' class="btn btn-danger" value="Delete User" onclick="return confirm('Are you sure you want to delete this user? This cannot be undone.')"> <?php // confirming if the admin is sure to delete the user ?>
 					</td>
 				</tr>
 			</form>

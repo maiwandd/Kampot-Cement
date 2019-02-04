@@ -1,12 +1,12 @@
-<!-- Include file voor bootstrap, stylesheet etc. -->
+<!-- Include file for bootstrap, stylesheet etc. -->
 <?php include('header_menu.php'); ?>
-<!-- Checkt of er als admin ingelogd is -->
+<!-- Checks if the user is logged in as an admin -->
 <?php
 if($_SESSION['Rights'] =='1') {
 	header('location: profilepage.php');
 }
 elseif($_SESSION['Rights'] =='0') {
-    $_SESSION['errorlog']="U heeft geen rechten om deze pagina te bekijken";
+    $_SESSION['errorlog']="You have no rights to visit this webpage";
     header('location: index.php');
 } ?>
 <table class="table table-striped">

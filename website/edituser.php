@@ -3,11 +3,11 @@
 <!-- Checkt of er als admin ingelogd is -->
 <?php
 if($_SESSION['Rights'] =='1') {
-		$_SESSION['errorlog']="U heeft geen rechten om deze pagina te bekijken";
+		$_SESSION['errorlog']="You have no rights to visit this webpage";
 	header('location: index.php');
 }
 elseif($_SESSION['Rights'] =='0') {
-    $_SESSION['errorlog']="U heeft geen rechten om deze pagina te bekijken";
+    $_SESSION['errorlog']="You have no rights to visit this webpage";
     header('location: index.php');
 } ?>
 <table id="summary">

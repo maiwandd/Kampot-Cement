@@ -2,7 +2,7 @@
 <?php include('header_menu.php'); ?>
 
 
-<!-- Login pagina inhoud -->
+<!-- Login page content -->
 <div class="row">
 	<div class="col-sm-12">
 		<h2 align="center">Log in</h2>
@@ -57,4 +57,4 @@
 		}
 	}
 ?>
-<!-- Einde login pagina inhoud -->
+<!-- End login page content -->
