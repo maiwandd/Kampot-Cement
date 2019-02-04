@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="TestObject">
+    <output-path>$PROJECT_DIR$/out/artifacts/TestObject</output-path>
+    <root id="root">
+      <element id="file-copy" path="$USER_HOME$/Downloads/json-simple-1.1.1.jar" />
+      <element id="archive" name="serverPi.jar">
+        <element id="module-output" name="serverPi" />
+      </element>
+    </root>
+  </artifact>
+</component>
