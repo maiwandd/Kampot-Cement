@@ -55,8 +55,9 @@ class AdjustData {
     }
 
     /**
-     * Method to correct incoming data
-     * @param data
+     * Method to correct the incoming data if necessary
+     *
+     * @param data raw data received from the weatherstations
      */
     static synchronized void correct(HashMap<String, String> data) {
 
