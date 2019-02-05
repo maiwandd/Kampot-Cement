@@ -31,7 +31,6 @@ class Queue {
 
         StringBuilder stringBuilder = new StringBuilder(measurementData);
         measurementData.setLength(0);
-        System.out.println(measurementData);
         locked = false;
 
         String test = "";

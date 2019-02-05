@@ -55,7 +55,7 @@ class AdjustData {
     }
 
     /**
-     * Method to correct incomming data
+     * Method to correct incoming data
      * @param data
      */
     static synchronized void correct(HashMap<String, String> data) {

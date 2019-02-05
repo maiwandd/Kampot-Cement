@@ -1,6 +1,7 @@
 package me.campot.serverPi;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -16,6 +17,7 @@ class Main {
     public static void main(String[] args) {
 
         int portNumber = Integer.parseInt(args[0]);
+
 
         if (args.length != 1) {
             System.err.println("Usage: java -jar serverPi <port number>");
