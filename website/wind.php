@@ -121,6 +121,7 @@ function downloadCSV(args) {
 	link.click();
 	document.body.removeChild(link);
 }
+var myVar = setInterval(window.onload, 10000);
 </script>
 </head>
 
