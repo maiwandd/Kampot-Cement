@@ -1,7 +1,6 @@
 package me.campot.serverPi;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -18,7 +17,6 @@ class Main {
 
         int portNumber = Integer.parseInt(args[0]);
 
-
         if (args.length != 1) {
             System.err.println("Usage: java -jar serverPi <port number>");
             System.exit(1);
@@ -26,6 +24,7 @@ class Main {
 
         // Filter incoming data based on customer needs
         Station.generateList();
+
         // Print stations to console
         for (Station tl : Station.testList) {
             System.out.println("STN: " + tl.STN + " is named " + tl.NAME);

@@ -16,7 +16,6 @@ import java.util.LinkedHashMap;
 
 class XMLParser implements Runnable {
 
-    private static int makeShift = 0;
     private final String XML;
 
     XMLParser(String xml) {
@@ -39,22 +38,24 @@ class XMLParser implements Runnable {
                 int length = data.getLength();
 
                 for (int i = 0; i < length; i++) {
-                    Element measurement = (Element) data.item(i);
 
-                    String sjoerd = measurement.getElementsByTagName("TIME").item(0).getTextContent();
-                    if (Integer.parseInt(sjoerd.substring(sjoerd.length() - 1)) % 5 == 0) {
+                    Element measurement = (Element) data.item(i);
+                    String time = measurement.getElementsByTagName("TIME").item(0).getTextContent();
+
+                    if (Integer.parseInt(time.substring(time.length() - 1)) % 5 == 0) {
                         if (Station.testMap.containsKey(measurement.getElementsByTagName("STN").item(0).getTextContent())) {
 
                             String[] tags = {"STN", "DATE", "TIME", "DEWP", "STP", "TEMP", "SLP",
                                     "VISIB", "WDSP", "PRCP", "SNDP", "FRSHTT", "CLDC", "WNDDIR"};
 
                             HashMap<String, String> measurementData = new LinkedHashMap<>();
+
                             for (String tag : tags) {
                                 measurementData.put(tag,
                                         measurement.getElementsByTagName(tag).item(0).getTextContent());
                             }
 
-                            AdjustData.correct(measurementData);
+                            AdjustData.Correct(measurementData);
 
                             StringBuilder stringBuilder = new StringBuilder();
                             stringBuilder.append("\n");
@@ -70,33 +71,6 @@ class XMLParser implements Runnable {
                             str.append(stringBuilder);
                         }
                     }
-
-//                    if (Station.testMap.containsKey(measurement.getElementsByTagName("STN").item(0).getTextContent())) {
-//
-//                        String[] tags = {"STN", "DATE", "TIME", "DEWP", "STP", "TEMP", "SLP",
-//                                "VISIB", "WDSP", "PRCP", "SNDP", "FRSHTT", "CLDC", "WNDDIR"};
-//
-//                        HashMap<String, String> measurementData = new LinkedHashMap<>();
-//                        for (String tag : tags) {
-//                            measurementData.put(tag,
-//                                    measurement.getElementsByTagName(tag).item(0).getTextContent());
-//                        }
-//
-//                        AdjustData.correct(measurementData);
-//
-//                        StringBuilder stringBuilder = new StringBuilder();
-//                        stringBuilder.append("\n");
-//
-//                        for (String tag : tags) {
-//                            if (!tag.equals("WNDDIR")) {
-//                                stringBuilder.append(measurementData.get(tag));
-//                                stringBuilder.append(",");
-//                            } else {
-//                                stringBuilder.append(measurementData.get(tag));
-//                            }
-//                        }
-//                        str.append(stringBuilder);
-//                    }
                 }
                 Queue.add(str);
             } catch (SAXException | IOException e) {

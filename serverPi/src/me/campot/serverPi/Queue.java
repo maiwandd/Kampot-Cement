@@ -31,21 +31,20 @@ class Queue {
 
         StringBuilder stringBuilder = new StringBuilder(measurementData);
         measurementData.setLength(0);
+
         locked = false;
 
-        String test = "";
+        String voidString = "";
 
         int length = stringBuilder.length();
 
         if (length != 0) {
             StringBuilder builder = new StringBuilder();
-            //stringBuilder.setLength(Math.max(length - 1, 0));
 
             builder.append(stringBuilder);
 
-            //test = "" + stringBuilder.toString();
             return String.valueOf(builder);
         }
-        return test;
+        return voidString;
     }
 }
