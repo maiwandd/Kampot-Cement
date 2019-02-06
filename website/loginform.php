@@ -24,7 +24,7 @@ else
 {
 $.ajax({
 type: "POST",
-url: "login2.php",
+url: "login.php",
 data: dataString,
 cache: false,
 success: function(result){
