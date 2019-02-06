@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="serverPi:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a41ea887-037a-45ce-9a84-a3df4a19c013" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/me/campot/serverPi/Queue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/campot/serverPi/Station.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/campot/serverPi/Thoth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../serverVM/src/me/campot/serverVM/Queue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../serverVM/src/me/campot/serverVM/Thoth.java" afterDir="false" />
+    <list default="true" id="a41ea887-037a-45ce-9a84-a3df4a19c013" name="Default Changelist" comment="Implemented a working filter in order to provide data per five seconds.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/serverPi_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/campot/serverPi/AdjustData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/campot/serverPi/AdjustData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/campot/serverPi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/campot/serverPi/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/campot/serverPi/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/campot/serverPi/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/campot/serverPi/Thoth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/campot/serverPi/Thoth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/campot/serverPi/WorkerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/campot/serverPi/WorkerRunnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/campot/serverPi/XMLParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/campot/serverPi/XMLParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../serverVM/src/me/campot/serverVM/StationStorage.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,14 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-388">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/AdjustData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
+            <state relative-caret-position="602">
+              <caret line="103" column="41" lean-forward="true" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/WorkerRunnable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="574">
+              <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -71,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/XMLParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="86" column="7" lean-forward="true" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
+            <state relative-caret-position="872">
+              <caret line="76" column="36" lean-forward="true" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#580#581#0" expanded="true" />
@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Station.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="19" column="75" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
+            <state relative-caret-position="308">
+              <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,17 +97,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Queue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6">
-              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+            <state relative-caret-position="448">
+              <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Thoth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+            <state relative-caret-position="112">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,15 +154,16 @@
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/Frankenstein.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/Dump.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/JSONWriter.java" />
-        <option value="$PROJECT_DIR$/src/me/campot/serverPi/WorkerRunnable.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/ThomasMauser.java" />
-        <option value="$PROJECT_DIR$/src/me/campot/serverPi/Queue.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/Iris.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/Test.java" />
+        <option value="$PROJECT_DIR$/src/me/campot/serverPi/Thoth.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/Main.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/AdjustData.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/XMLParser.java" />
+        <option value="$PROJECT_DIR$/src/me/campot/serverPi/WorkerRunnable.java" />
         <option value="$PROJECT_DIR$/src/me/campot/serverPi/Station.java" />
+        <option value="$PROJECT_DIR$/src/me/campot/serverPi/Queue.java" />
       </list>
     </option>
   </component>
@@ -203,6 +204,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="serverPi" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="serverPi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="serverPi" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -231,6 +238,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="MAIN_CLASS_NAME" value="me.campot.serverPi.Main" />
       <module name="serverPi" />
       <option name="PROGRAM_PARAMETERS" value="7789" />
@@ -260,7 +268,7 @@
       <workItem from="1548333458147" duration="8713000" />
       <workItem from="1548677722049" duration="394000" />
       <workItem from="1548678797873" duration="1949000" />
-      <workItem from="1548707106753" duration="22553000" />
+      <workItem from="1548707106753" duration="33949000" />
     </task>
     <task id="LOCAL-00001" summary="First attempt to write JSON; needs testing! TO-DO; all data in one file instead of a file per thread.">
       <created>1548169050374</created>
@@ -283,14 +291,45 @@
       <option name="project" value="LOCAL" />
       <updated>1548169649112</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Proof of concept; works!">
+      <created>1549285083845</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1549285083845</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Igor: IT'S ALIVE!">
+      <created>1549365938870</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1549365938870</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implemented a working filter in order to provide data per five seconds.">
+      <created>1549370670085</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1549370670085</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63089000" />
+    <option name="totallyTimeSpent" value="74485000" />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="10" width="1660" height="1030" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" sideWeight="0.5007949" side_tool="true" weight="0.24969098" />
@@ -304,13 +343,13 @@
       <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49938196" weight="0.32942432" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.32942432" />
+      <window_info active="true" anchor="bottom" id="Find" order="7" visible="true" weight="0.32942432" />
       <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49814585" weight="0.32942432" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info active="true" anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49876392" visible="true" weight="0.32942432" />
+      <window_info anchor="bottom" id="TODO" order="12" weight="0.32942432" />
+      <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49876392" weight="0.32942432" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Maven" order="2" />
@@ -355,7 +394,10 @@
     <MESSAGE value="First attempt to write JSON; needs testing! TO-DO; all data in one file instead of a file per thread." />
     <MESSAGE value="Addaed missing classes due to filesystem restructure." />
     <MESSAGE value="Code cleanup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup." />
+    <MESSAGE value="Proof of concept; works!" />
+    <MESSAGE value="Igor: IT'S ALIVE!" />
+    <MESSAGE value="Implemented a working filter in order to provide data per five seconds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented a working filter in order to provide data per five seconds." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/me/campot/XMLParser.java" />
@@ -378,13 +420,6 @@
     <entry file="file://$PROJECT_DIR$/data.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Iris.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -395,10 +430,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Thoth.java">
+    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+        <state relative-caret-position="-388">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/AdjustData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="103" column="41" lean-forward="true" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -414,25 +456,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/WorkerRunnable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/AdjustData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="574">
+          <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/XMLParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="86" column="7" lean-forward="true" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
+        <state relative-caret-position="872">
+          <caret line="76" column="36" lean-forward="true" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#580#581#0" expanded="true" />
@@ -443,18 +475,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Station.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="19" column="75" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
+        <state relative-caret-position="308">
+          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Queue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="448">
+          <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/campot/serverPi/Thoth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -467,11 +506,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>unnamed</last-edited>
+          <last-edited>serverPi:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
